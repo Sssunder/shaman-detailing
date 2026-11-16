@@ -1,11 +1,18 @@
-# CHANGELOG — shaman-detailing
+# CHANGELOG — DETAILING SHAMAN (`shaman-detailing`)
 
-## [2026-11-16] — Launch: Turnkey Platform for DETAILING SHAMAN (Kurgan)
-- **High-Ticket Auto Care**: Dedicated commercial platform for DETAILING SHAMAN studio (`detailing_shaman`, Kurgan, Mashinostroiteley Ave 23E). Average ticket: 10,000 – 45,000 ₽ (Ceramic coating, deep polishing, leather restoration, LeTech interior dry cleaning).
-- **Authentic Portfolio Media**: 12 high-resolution vehicle photos from studio's official VK portfolio (`vk.com/detailing_shaman`), custom luxury monogram "DS" logo (`logo.jpg`), high-DPI monogram favicon (`favicon.png` & `favicon.ico`).
-- **Supabase Cloud Sync (`client-sites` / `ngsonqwylcwcziwxurkc`)**:
-  - `site_slug`: `shaman-detailing`
-  - PIN-protected master notebook (`#masterView`, initial PIN: `1234`).
-  - Preloaded 8 high-ticket services (Gyeon Ceramic 25,000 ₽, Deep Polishing 18,000 ₽, Full VIP Detailing 45,000 ₽).
-  - Authentic car owner reviews (Camry, BMW 5, Monjaro, Audi Q7).
-- **Architecture & Design**: Onyx Carbon dark theme as primary, zero collision header, 0px horizontal overflow across mobile (360px) and desktop (1440px). Target domain: `https://shaman.kotenev.sbs/` (`.domains`).
+## [2026-11-16] — Полный редизайн под премиальный автомобильный детейлинг (Bespoke Automotive UI)
+- **Удалены рудименты салонного движка**: полностью вычищены «маникюр», «подобрать окно», «сертификаты», «френч» и косметические термины.
+- **Новая визуальная система Carbon & Gold Glow**:
+  - Палитра глубокого матового обсидиана `#07090C`, карбона `#11151D` и золотого янтаря `#F59E0B`.
+  - Технологичная типографика: `Space Grotesk` (рубленый авто-инженерный стиль) + `Inter` (высокая читаемость спецификаций).
+- **Интерактивный блок ДО / ПОСЛЕ (50/50 Drag Slider)**:
+  - Сравнение кузова: паутина и царапины от моек ДО vs зеркальный мокрый глянец и 9H керамика ПОСЛЕ.
+  - Сенсорное управление на телефоне и мышь на десктопе.
+- **Интерактивный авто-калькулятор по классам кузова**:
+  - Седан / Хэтчбек (базовый), Кроссовер (+15%), Внедорожник (+30%).
+  - 5 ключевых услуг детейлинга (Керамика Gyeon 9H 2 слоя, Полировка, Бронепленка зон риска, Химчистка LeTech, Антидождь Aquapel).
+  - Динамический пересчет суммы + автоматическая скидка 10% на комплекс + моментальная отправка готового расчета в WhatsApp / Telegram.
+- **Запись на бесплатную дефектовку ЛКП**:
+  - Замер толщины заводского лака толщиномером + инспекционный свет Scangrip.
+  - Форма быстрой записи с прямой синхронизацией в Supabase `client-sites` (`shaman-detailing`).
+- **Верификация**: Playwright тесты `preview_mobile_hero.png`, `preview_mobile_calc.png`, `preview_desktop_hero.png`, `preview_desktop_slider.png` — HTTP 200, 0px horizontal overflow, 0 ошибок. Запушено в GitHub Pages (`master` + `pages`, коммит `33683fd`).
