@@ -318,33 +318,49 @@
     <section class="py-14 sm:py-20 px-4 sm:px-6 bg-dark-900 border-y border-white/10">
         <div class="max-w-5xl mx-auto">
             
-            <div class="text-center space-y-3 mb-10">
+            <div class="text-center space-y-3 mb-8">
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-850 border border-white/10 text-amber-400 text-xs font-bold uppercase tracking-wider">
                     <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                    <span>Наглядный результат под инспекционным светом</span>
+                    <span>Наглядный результат работы студии</span>
                 </div>
                 <h2 class="font-tech text-2xl sm:text-4xl font-bold text-white uppercase tracking-tight">
-                    ДО И ПОСЛЕ <span class="text-amber-500">ДЕТЕЙЛИНГА</span>
+                    РЕАЛЬНЫЙ РЕЗУЛЬТАТ: <span class="text-amber-500">ДО И ПОСЛЕ</span>
                 </h2>
-                <p class="text-steel-400 text-xs sm:text-sm max-w-xl mx-auto">
-                    Потяните ползунок в центре: слева кузов после уличных моек (паутина, микрориски), справа — зеркальная поверхность после восстановительной полировки Shaman.
+                <p id="sliderDesc" class="text-steel-400 text-xs sm:text-sm max-w-xl mx-auto">
+                    Слева кузов после зимних щеток и обычных автомоек. Справа — поверхность после восстановительной полировки Rupes и нанесения керамики Gyeon.
                 </p>
+            </div>
+
+            <!-- Interactive 3-Tab Switcher -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-6" id="compareTabs">
+                <button onclick="switchComparisonTab('paint', this)" class="compare-tab-btn px-3.5 sm:px-4 py-2 rounded-xl bg-dark-850 border-2 border-amber-500 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all">
+                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
+                    <span>1. Полировка ЛКП (Паутина vs Зеркало)</span>
+                </button>
+                <button onclick="switchComparisonTab('bumper', this)" class="compare-tab-btn px-3.5 sm:px-4 py-2 rounded-xl bg-dark-850 border-2 border-white/10 text-steel-400 hover:text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all">
+                    <i data-lucide="shield-alert" class="w-4 h-4"></i>
+                    <span>2. Притертость бампера (BMW)</span>
+                </button>
+                <button onclick="switchComparisonTab('leather', this)" class="compare-tab-btn px-3.5 sm:px-4 py-2 rounded-xl bg-dark-850 border-2 border-white/10 text-steel-400 hover:text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all">
+                    <i data-lucide="armchair" class="w-4 h-4"></i>
+                    <span>3. Реставрация кожи (Cadillac)</span>
+                </button>
             </div>
 
             <!-- Interactive 50/50 Slider Container -->
             <div class="slider-container max-w-3xl mx-auto aspect-[16/9] rounded-2xl border-2 border-white/15 shadow-2xl relative" id="comparisonSlider">
                 <!-- After Image (Background) -->
-                <img src="work_car_6.jpg" alt="После детейлинга" class="w-full h-full object-cover">
-                <div class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/90 text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg">
-                    ПОСЛЕ: Зеркальный глянец
+                <img id="sliderAfterImg" src="slider_paint_after.jpg" alt="После детейлинга" class="w-full h-full object-cover">
+                <div id="sliderAfterLabel" class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/90 text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg">
+                    ПОСЛЕ: Зеркальный глянец & 9H
                 </div>
 
                 <!-- Before Image (Clipped) -->
                 <div class="slider-before" id="sliderBefore" style="width: 50%;">
                     <div id="sliderBeforeInner" class="h-full relative overflow-hidden">
-                        <img id="sliderBeforeImg" src="work_car_7.jpg" alt="До детейлинга" class="absolute top-0 left-0 h-full object-cover filter contrast-125 brightness-90">
-                        <div class="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 px-2.5 sm:px-3 py-1 rounded-lg bg-red-600/90 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg whitespace-nowrap">
-                            ДО: Паутина и царапины
+                        <img id="sliderBeforeImg" src="slider_paint_before.jpg" alt="До детейлинга" class="absolute top-0 left-0 h-full object-cover">
+                        <div id="sliderBeforeLabel" class="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 px-2.5 sm:px-3 py-1 rounded-lg bg-red-600/90 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg whitespace-nowrap">
+                            ДО: Паутина от щеток и царапины
                         </div>
                     </div>
                 </div>
@@ -922,6 +938,49 @@
         const sliderHandle = document.getElementById('sliderHandle');
         const sliderBeforeImg = document.getElementById('sliderBeforeImg');
         let isDragging = false;
+
+        const COMPARISON_DATA = {
+            paint: {
+                beforeImg: 'slider_paint_before.jpg',
+                afterImg: 'slider_paint_after.jpg',
+                beforeLabel: 'ДО: Паутина от щеток и царапины',
+                afterLabel: 'ПОСЛЕ: Зеркальный глянец & 9H',
+                desc: 'Слева кузов после зимних щеток и обычных автомоек. Справа — поверхность после восстановительной полировки Rupes и нанесения керамики Gyeon.'
+            },
+            bumper: {
+                beforeImg: 'slider_bumper_before.jpg',
+                afterImg: 'slider_bumper_after.jpg',
+                beforeLabel: 'ДО: Глубокая притертость до грунта',
+                afterLabel: 'ПОСЛЕ: Устранено без перекраса',
+                desc: 'BMW 3/5: владелец готовился к дорогостоящему перекрасу бампера. Мастера Shaman убрали притертость локальной полировкой с сохранением заводского ЛКП.'
+            },
+            leather: {
+                beforeImg: 'slider_leather_before.jpg',
+                afterImg: 'slider_leather_after.jpg',
+                beforeLabel: 'ДО: Затертая потрескавшаяся кожа',
+                afterLabel: 'ПОСЛЕ: Заводская матовая текстура LeTech',
+                desc: 'Cadillac Escalade (10+ лет): кресло потеряло цвет, появились заломы и въевшаяся грязь. Полная химчистка, колеровка и консервация крем-воском LeTech.'
+            }
+        };
+
+        function switchComparisonTab(type, btn) {
+            document.querySelectorAll('.compare-tab-btn').forEach(b => {
+                b.classList.remove('border-amber-500', 'text-white');
+                b.classList.add('border-white/10', 'text-steel-400');
+            });
+            btn.classList.remove('border-white/10', 'text-steel-400');
+            btn.classList.add('border-amber-500', 'text-white');
+
+            const d = COMPARISON_DATA[type];
+            if (!d) return;
+
+            document.getElementById('sliderAfterImg').src = d.afterImg;
+            document.getElementById('sliderBeforeImg').src = d.beforeImg;
+            document.getElementById('sliderAfterLabel').innerText = d.afterLabel;
+            document.getElementById('sliderBeforeLabel').innerText = d.beforeLabel;
+            document.getElementById('sliderDesc').innerText = d.desc;
+            syncSliderWidth();
+        }
 
         function syncSliderWidth() {
             if (slider && sliderBeforeImg) {
