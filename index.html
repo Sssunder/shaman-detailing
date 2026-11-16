@@ -316,50 +316,34 @@
 
     <!-- BEFORE / AFTER COMPARISON SECTION -->
     <section class="py-14 sm:py-20 px-4 sm:px-6 bg-dark-900 border-y border-white/10">
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-5xl mx-auto space-y-12">
             
-            <div class="text-center space-y-3 mb-8">
+            <div class="text-center space-y-3">
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-dark-850 border border-white/10 text-amber-400 text-xs font-bold uppercase tracking-wider">
                     <i data-lucide="eye" class="w-3.5 h-3.5"></i>
-                    <span>Наглядный результат работы студии</span>
+                    <span>Инспекционный свет • Тест 50/50</span>
                 </div>
                 <h2 class="font-tech text-2xl sm:text-4xl font-bold text-white uppercase tracking-tight">
-                    РЕАЛЬНЫЙ РЕЗУЛЬТАТ: <span class="text-amber-500">ДО И ПОСЛЕ</span>
+                    ПОЛИРОВКА ЛКП: <span class="text-amber-500">ТЕСТ 50/50</span>
                 </h2>
-                <p id="sliderDesc" class="text-steel-400 text-xs sm:text-sm max-w-xl mx-auto">
-                    Слева кузов после зимних щеток и обычных автомоек. Справа — поверхность после восстановительной полировки Rupes и нанесения керамики Gyeon.
+                <p class="text-steel-400 text-xs sm:text-sm max-w-xl mx-auto">
+                    Потяните ползунок: слева кузов с паутиной и микрорисками от щеток. Справа — идеальный зеркальный глянец после полировки Rupes и керамики Gyeon 9H. Камера и освещение зафиксированы на одной детали.
                 </p>
             </div>
 
-            <!-- Interactive 3-Tab Switcher -->
-            <div class="flex flex-wrap items-center justify-center gap-2 mb-6" id="compareTabs">
-                <button onclick="switchComparisonTab('paint', this)" class="compare-tab-btn px-3.5 sm:px-4 py-2 rounded-xl bg-dark-850 border-2 border-amber-500 text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all">
-                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-500"></i>
-                    <span>1. Полировка ЛКП (Паутина vs Зеркало)</span>
-                </button>
-                <button onclick="switchComparisonTab('bumper', this)" class="compare-tab-btn px-3.5 sm:px-4 py-2 rounded-xl bg-dark-850 border-2 border-white/10 text-steel-400 hover:text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all">
-                    <i data-lucide="shield-alert" class="w-4 h-4"></i>
-                    <span>2. Притертость бампера (BMW)</span>
-                </button>
-                <button onclick="switchComparisonTab('leather', this)" class="compare-tab-btn px-3.5 sm:px-4 py-2 rounded-xl bg-dark-850 border-2 border-white/10 text-steel-400 hover:text-white font-bold text-xs sm:text-sm flex items-center gap-2 transition-all">
-                    <i data-lucide="armchair" class="w-4 h-4"></i>
-                    <span>3. Реставрация кожи (Cadillac)</span>
-                </button>
-            </div>
-
-            <!-- Interactive 50/50 Slider Container -->
+            <!-- Pixel-Perfect 50/50 Paint Slider -->
             <div class="slider-container max-w-3xl mx-auto aspect-[16/9] rounded-2xl border-2 border-white/15 shadow-2xl relative" id="comparisonSlider">
-                <!-- After Image (Background) -->
-                <img id="sliderAfterImg" src="slider_paint_after.jpg" alt="После детейлинга" class="w-full h-full object-cover">
-                <div id="sliderAfterLabel" class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/90 text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg">
+                <!-- After Image (Background: 100% aligned) -->
+                <img id="sliderAfterImg" src="slider_paint_after.jpg" alt="После полировки керамика" class="w-full h-full object-cover">
+                <div class="absolute top-3 sm:top-4 right-3 sm:right-4 z-10 px-2.5 sm:px-3 py-1 rounded-lg bg-emerald-500/90 text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg">
                     ПОСЛЕ: Зеркальный глянец & 9H
                 </div>
 
-                <!-- Before Image (Clipped) -->
+                <!-- Before Image (Clipped: 100% aligned) -->
                 <div class="slider-before" id="sliderBefore" style="width: 50%;">
                     <div id="sliderBeforeInner" class="h-full relative overflow-hidden">
-                        <img id="sliderBeforeImg" src="slider_paint_before.jpg" alt="До детейлинга" class="absolute top-0 left-0 h-full object-cover">
-                        <div id="sliderBeforeLabel" class="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 px-2.5 sm:px-3 py-1 rounded-lg bg-red-600/90 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg whitespace-nowrap">
+                        <img id="sliderBeforeImg" src="slider_paint_before.jpg" alt="До полировки паутина" class="absolute top-0 left-0 h-full object-cover">
+                        <div class="absolute top-3 sm:top-4 left-3 sm:left-4 z-10 px-2.5 sm:px-3 py-1 rounded-lg bg-red-600/90 text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-lg whitespace-nowrap">
                             ДО: Паутина от щеток и царапины
                         </div>
                     </div>
@@ -373,8 +357,82 @@
                 </div>
             </div>
 
+            <!-- REAL WORKSHOP CASES: SIDE-BY-SIDE CARDS -->
+            <div class="space-y-6 pt-4">
+                <div class="text-center">
+                    <div class="text-xs uppercase tracking-wider text-amber-400 font-bold">Реальные работы из бокса Shaman в Кургане</div>
+                    <h3 class="font-tech text-xl sm:text-2xl font-bold text-white uppercase tracking-tight mt-1">
+                        КЕЙСЫ УСТРАНЕНИЯ ДЕФЕКТОВ
+                    </h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Case 1: BMW Bumper -->
+                    <div class="carbon-card p-5 rounded-2xl border border-white/10 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-tech font-bold text-white text-base">BMW: Глубокая притертость бампера</span>
+                            <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase">Без перекраса</span>
+                        </div>
+
+                        <!-- Side by Side Photos -->
+                        <div class="grid grid-cols-2 gap-2 rounded-xl overflow-hidden">
+                            <div class="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                                <img src="case_bmw_before.jpg" alt="Притертость до" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-red-600/90 text-white text-[10px] font-bold uppercase">ДО: Задир до грунта</span>
+                            </div>
+                            <div class="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                                <img src="case_bmw_after.jpg" alt="Бампер после" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-emerald-500/90 text-black text-[10px] font-bold uppercase">ПОСЛЕ: Зеркало</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-steel-400 leading-relaxed">
+                            Владелец планировал перекрашивать бампер за 18 000 ₽. Мастера Shaman убрали притертость локальной полировкой и защитили керамикой Gyeon.
+                        </p>
+
+                        <div class="flex items-center justify-between text-[11px] text-steel-300 pt-1 border-t border-white/10">
+                            <span>Срок: <strong>4 часа</strong></span>
+                            <span>Экономия: <strong class="text-amber-400">~18 000 ₽</strong></span>
+                            <span>ЛКП: <strong>Заводское сохранено</strong></span>
+                        </div>
+                    </div>
+
+                    <!-- Case 2: Cadillac Leather -->
+                    <div class="carbon-card p-5 rounded-2xl border border-white/10 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-tech font-bold text-white text-base">Cadillac: Реставрация кожи LeTech</span>
+                            <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 text-[10px] font-bold uppercase">Салон 10+ лет</span>
+                        </div>
+
+                        <!-- Side by Side Photos -->
+                        <div class="grid grid-cols-2 gap-2 rounded-xl overflow-hidden">
+                            <div class="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                                <img src="case_leather_before.jpg" alt="Кожа до" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-red-600/90 text-white text-[10px] font-bold uppercase">ДО: Заломы и грязь</span>
+                            </div>
+                            <div class="relative aspect-[4/3] rounded-lg overflow-hidden group">
+                                <img src="case_leather_after.jpg" alt="Кожа после" class="w-full h-full object-cover">
+                                <span class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-emerald-500/90 text-black text-[10px] font-bold uppercase">ПОСЛЕ: Матовый LeTech</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-steel-400 leading-relaxed">
+                            Полная очистка пор кожи от въевшейся грязи, устранение заломов и трещин, колеровка в заводской оттенок и покрытие защитным крем-воском.
+                        </p>
+
+                        <div class="flex items-center justify-between text-[11px] text-steel-300 pt-1 border-t border-white/10">
+                            <span>Срок: <strong>1 день</strong></span>
+                            <span>Материалы: <strong class="text-amber-400">LeTech (UK)</strong></span>
+                            <span>Финиш: <strong>Матовый сатин</strong></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
             <!-- 3 Highlights -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mt-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto pt-2">
                 <div class="carbon-card p-4 rounded-xl flex items-start gap-3">
                     <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-500 flex-shrink-0">
                         <i data-lucide="sparkles" class="w-4 h-4"></i>
@@ -938,49 +996,6 @@
         const sliderHandle = document.getElementById('sliderHandle');
         const sliderBeforeImg = document.getElementById('sliderBeforeImg');
         let isDragging = false;
-
-        const COMPARISON_DATA = {
-            paint: {
-                beforeImg: 'slider_paint_before.jpg',
-                afterImg: 'slider_paint_after.jpg',
-                beforeLabel: 'ДО: Паутина от щеток и царапины',
-                afterLabel: 'ПОСЛЕ: Зеркальный глянец & 9H',
-                desc: 'Слева кузов после зимних щеток и обычных автомоек. Справа — поверхность после восстановительной полировки Rupes и нанесения керамики Gyeon.'
-            },
-            bumper: {
-                beforeImg: 'slider_bumper_before.jpg',
-                afterImg: 'slider_bumper_after.jpg',
-                beforeLabel: 'ДО: Глубокая притертость до грунта',
-                afterLabel: 'ПОСЛЕ: Устранено без перекраса',
-                desc: 'BMW 3/5: владелец готовился к дорогостоящему перекрасу бампера. Мастера Shaman убрали притертость локальной полировкой с сохранением заводского ЛКП.'
-            },
-            leather: {
-                beforeImg: 'slider_leather_before.jpg',
-                afterImg: 'slider_leather_after.jpg',
-                beforeLabel: 'ДО: Затертая потрескавшаяся кожа',
-                afterLabel: 'ПОСЛЕ: Заводская матовая текстура LeTech',
-                desc: 'Cadillac Escalade (10+ лет): кресло потеряло цвет, появились заломы и въевшаяся грязь. Полная химчистка, колеровка и консервация крем-воском LeTech.'
-            }
-        };
-
-        function switchComparisonTab(type, btn) {
-            document.querySelectorAll('.compare-tab-btn').forEach(b => {
-                b.classList.remove('border-amber-500', 'text-white');
-                b.classList.add('border-white/10', 'text-steel-400');
-            });
-            btn.classList.remove('border-white/10', 'text-steel-400');
-            btn.classList.add('border-amber-500', 'text-white');
-
-            const d = COMPARISON_DATA[type];
-            if (!d) return;
-
-            document.getElementById('sliderAfterImg').src = d.afterImg;
-            document.getElementById('sliderBeforeImg').src = d.beforeImg;
-            document.getElementById('sliderAfterLabel').innerText = d.afterLabel;
-            document.getElementById('sliderBeforeLabel').innerText = d.beforeLabel;
-            document.getElementById('sliderDesc').innerText = d.desc;
-            syncSliderWidth();
-        }
 
         function syncSliderWidth() {
             if (slider && sliderBeforeImg) {
